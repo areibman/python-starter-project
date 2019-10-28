@@ -9,7 +9,7 @@ import sys
 import os
 
 # When importing python files from other directories
-repo_path = os.path.expanduser(os.environ.get('PATH_TO_REPOS', '~/axio'))
+repo_path = os.path.expanduser(os.environ.get('PATH_TO_REPOS', '~/'))
 sys.path.insert(0, os.path.expanduser(
     os.path.join(repo_path, 'data-science', 'c2m2_analytics', 'src')))
 
