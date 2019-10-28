@@ -1,31 +1,11 @@
-#!/usr/bin/env python3
-"""
-Docstring goes here. Is stored as __doc__
-"""
-
-
 import argparse
 import sys
-import os
-
-# When importing python files from other directories
-repo_path = os.path.expanduser(os.environ.get('PATH_TO_REPOS', '~/axio'))
-sys.path.insert(0, os.path.expanduser(
-    os.path.join(repo_path, 'data-science', 'c2m2_analytics', 'src')))
 
 
-def foo():
-    """Example function with types documented in the docstring.
-    Args:
-        param1 (int): The first parameter.
-
-    Returns:
-        bool: The return value. True for success, False otherwise.
+def get_argparse():
+    """ Returns arguments submited by running a .py file.
+        Ex: `python3 sample.py -f image.jpg -p book.pdf --verbose`
     """
-    pass
-
-
-if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
 
     # Set an optional flag that defaults to a value.
@@ -60,9 +40,4 @@ if __name__ == "__main__":
         parser.print_help()
 
     # Assigning variables to args
-    args = parser.parse_args()
-
-    if args.__dict__.get('optional arg'):
-        optional = args.optional_arg
-    else:
-        pass
+    return parser.parse_args()
